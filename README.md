@@ -1,18 +1,16 @@
 # Microsoft Azure Analysis Services with Sample Data on Azure SQL
 Microsoft Analysis Services is a Platform As a Service (PaaS) service within Microsoft Azure under Business Intelligence umbrella. It brings Build rich semantic models with the capability of gaining insight at the speed of thought. It’s a proven technology on cloud with capability of provisioning and scaling with ease. There are two options to start play around with the Analysis services. 
 
-1.	Create Sample Model directly in the Service
-2.	Create Azure SQL with Sample Data and build the model from scratch with that data 
+1.  Create Sample Model directly in the Service
+2.  Create Azure SQL with Sample Data and build the model from scratch with that data 
 
 We will going to see both the options with this ARM template so that you can kickstart deploying & playing with the service with Sample (Sales Data) data.
-
 
 # Azure Analysis Service with Azure SQL Landing Zone
 
 To work with Azure SQL we need landing zone template having Azure Vnet, Private Endpoint, Azure SQL Server & Database. Combination of all the services will allow us to deploy Azure SQL with Sample Database with right network and security configuration to access the data. 
 
 On other hand, Azure Analysis services does not need any specific network installation. It works as a standalone service in Azure with On-Premise Data gateway which needs to be configured separately on the client system where we need to develop the model before deploying it to the Azure Cloud
-
 
 # Target audience
 
@@ -22,12 +20,11 @@ On other hand, Azure Analysis services does not need any specific network instal
     - Cloud Solution Architect
 - Business Professionals with aspiring/experience of Self-service Analytics
 
-
 # Pre-requisites:
--	Microsoft Azure Account to deploy services
--	Visual Studio 2019 with,
-    o	SSDT (SQL Server Development Tools)
-    o	Microsoft Analysis Services Tabular Model Plugin
+-   Microsoft Azure Account to deploy services
+-   Visual Studio 2019 with,
+    o   SSDT (SQL Server Development Tools)
+    o   Microsoft Analysis Services Tabular Model Plugin
 
 # Landing Zone Architecture
 
@@ -36,17 +33,16 @@ The [Template.json](https://github.com/git-pranayshah/AnalysisService/blob/maste
 - A landing zone for network with,
     Virtual Network
     Two Subnet (Default & Private-Data)
-    Network Intefaces to connect to Private Network
+    Network Interfaces to connect to Private Network
     Private Network Links
 - Azure SQL Server with,
     Sample Dataset (Please verify Pricing Tier as it contributes to cost)
     Private Network Link Connection
 - Analysis Services Instance
 
-
 - A Network Security Group with the necessary outbound rules for Azure Virtual Desktop Hostpools to properly activate and work.
-- All services are ready to communicate with client Ip which is used to configure the service. In case of firwall error, request you to verify you client Ip under firwall section
-- Cost implications are invloved with Azure SQL and Analysis Services instance. Review and modify the Pricing Tier based on your needs
+- All services are ready to communicate with client Ip which is used to configure the service. In case of firewall error, request you to verify you client Ip under firwall section
+- Cost implications are involved with Azure SQL and Analysis Services instance. Review and modify the Pricing Tier based on your needs
 
 ![alt image](https://github.com/git-pranayshah/AnalysisService/blob/master/images/Landing_Zone_Template.png)
 
@@ -54,7 +50,7 @@ The [Template.json](https://github.com/git-pranayshah/AnalysisService/blob/maste
 
 ## One Click Deploying Teamplate
 <!-- Powershell command for Translating Git URL for template.json
-    $url = "https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json"
+    $url = https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json
     [uri]::EscapeDataString($url)
     >> uri = https%3A%2F%2Fraw.githubusercontent.com%2Fgit-pranayshah%2Ftemplate%2Fmaster%2Ftemplate.json
 
@@ -62,7 +58,6 @@ Base URL: https://portal.azure.com/#create/Microsoft.Template/uri
 Final URL: <Base URL>/<uri>
 -->
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgit-pranayshah%2FAnalysisService%2Fmaster%2Ftemplate.json)
-
 
 ## Deploying an ARM Template using the Azure portal
 
@@ -97,7 +92,7 @@ Using the search bar on top type Templates
 
 ## Azure services and related products
 
-- Azure Networking including Vnet & network intefaces
+- Azure Networking including Vnet & network interfaces
 - Security & Firewall
 - Azure SQL
 - Azure Analysis Services
@@ -109,6 +104,7 @@ Using the search bar on top type Templates
 - https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks
 - https://docs.microsoft.com/en-us/azure/architecture/data-science-process/sample-data-sql-server
 - https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-overview
+
 
 
 

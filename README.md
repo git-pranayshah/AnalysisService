@@ -29,14 +29,24 @@ On other hand, Azure Analysis services does not need any specific network instal
     o	SSDT (SQL Server Development Tools)
     o	Microsoft Analysis Services Tabular Model Plugin
 
-# Product/LZ architecture
+# Landing Zone Architecture
 
 The [Template.json](https://github.com/git-pranayshah/AnalysisService/blob/master/template.json) Azure Resource Manager template will help you automatically deploy the diagram below, which includes:
 
-example!!!
+- A landing zone for network with,
+    Virtual Network
+    Two Subnet (Default & Private-Data)
+    Network Intefaces to connect to Private Network
+    Private Network Links
+- Azure SQL Server with,
+    Sample Dataset (Please verify Pricing Tier as it contributes to cost)
+    Private Network Link Connection
+- Analysis Services Instance
 
-- A Virutal Network Gateway and a Public IP address.
+
 - A Network Security Group with the necessary outbound rules for Azure Virtual Desktop Hostpools to properly activate and work.
+- All services are ready to communicate with client Ip which is used to configure the service. In case of firwall error, request you to verify you client Ip under firwall section
+- Cost implications are invloved with Azure SQL and Analysis Services instance. Review and modify the Pricing Tier based on your needs
 
 ![alt image](https://github.com/git-pranayshah/AnalysisService/blob/master/images/Landing_Zone_Template.png)
 
@@ -82,21 +92,23 @@ Using the search bar on top type Templates
 
 ![alt image](https://github.com/git-pranayshah/AnalysisService/blob/master/images/Fill%20out%20the%20details%20and%20purchase.png)
 
-- Allow 30 minutes for the deployment to complete
+- Allow 20 minutes for the deployment to complete
 - Peer your Hub and Spoke Virtual Networks as needed
 
 ## Azure services and related products
 
-example!!
-- Azure Networking
-- Security
+- Azure Networking including Vnet & network intefaces
+- Security & Firewall
+- Azure SQL
+- Azure Analysis Services
 
 ## Related references
-example!!
-- https://docs.microsoft.com/en-us/azure/virtual-desktop/overview
+- https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15
+- https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects
 - https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/
 - https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks
-- https://docs.microsoft.com/en-us/azure/virtual-desktop/safe-url-list#virtual-machines
+- https://docs.microsoft.com/en-us/azure/architecture/data-science-process/sample-data-sql-server
+- https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-overview
 
 
 

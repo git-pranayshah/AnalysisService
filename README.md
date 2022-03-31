@@ -28,7 +28,7 @@ On other hand, Azure Analysis services does not need any specific network instal
 
 # Landing Zone Architecture
 
-The [Template.json](https://github.com/git-pranayshah/AnalysisService/blob/master/template.json) Azure Resource Manager template will help you automatically deploy the diagram below, which includes:
+The [Template.json](https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json) Azure Resource Manager template will help you automatically deploy the diagram below, which includes:
 
 - A landing zone for network with,
     Virtual Network
@@ -46,13 +46,24 @@ The [Template.json](https://github.com/git-pranayshah/AnalysisService/blob/maste
 
 ![alt image](https://github.com/git-pranayshah/AnalysisService/blob/master/images/Landing_Zone_Template.png)
 
-[Template.json](https://github.com/git-pranayshah/AnalysisService/blob/master/template.json) can be modified to match your current infrastructure needs.
+[Template.json](https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json) can be modified to match your current infrastructure needs.
+
+## Teamplate Parameters
+- Subscription: Azure Portal Subscription where you wish to deploy the template
+- Resource Group: Select or create new resource group to deploy the resources
+- Region (Default:westeruope): Select rigth region to deploy the resources
+- Subscription Id: Select right Azure subscription id
+- Servers_sample_db_server_mas_name (Default: samplesqldb-<Unique string based on resource group>): Server name for Azure SQL 
+- Private Endpoints_private_db_name(Default: private-db): Private endpoint name for Azure SQL DB connection
+- Virtual Networks_default_vnet_name(Default: defaultvnet): Virtual Network Name
+-
+
 
 ## One Click Deploying Teamplate
 <!-- Powershell command for Translating Git URL for template.json
-    $url = https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json
+    $url = "https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json"
     [uri]::EscapeDataString($url)
-    >> uri = https%3A%2F%2Fraw.githubusercontent.com%2Fgit-pranayshah%2Ftemplate%2Fmaster%2Ftemplate.json
+    >> uri = https%3A%2F%2Fraw.githubusercontent.com%2Fgit-pranayshah%2FAnalysisService%2Fmaster%2Ftemplate.json
 
 Base URL: https://portal.azure.com/#create/Microsoft.Template/uri
 Final URL: <Base URL>/<uri>
@@ -75,7 +86,7 @@ Using the search bar on top type Templates
 
 ![alt image](https://github.com/git-pranayshah/AnalysisService/blob/master/images/Name%20and%20Description.png)
 
-- Add for modified [Template.json](https://github.com/git-pranayshah/AnalysisService/blob/master/template.json) and save it
+- Add for modified [Template.json](https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json) and save it
 
 ![alt image](https://github.com/git-pranayshah/AnalysisService/blob/master/images/add%20code.png)
 

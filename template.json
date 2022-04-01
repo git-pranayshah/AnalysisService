@@ -103,21 +103,7 @@
               "enableIPForwarding": false
           }
       },
-      {
-          "type": "Microsoft.Network/privateDnsZones",
-          "apiVersion": "2018-09-01",
-          "name": "[parameters('privateDnsZones_privatelink_database_windows_net_name')]",
-          "location": "global",
-          "properties": {
-              "maxNumberOfRecordSets": 25000,
-              "maxNumberOfVirtualNetworkLinks": 1000,
-              "maxNumberOfVirtualNetworkLinksWithRegistration": 100,
-              "numberOfRecordSets": 2,
-              "numberOfVirtualNetworkLinks": 1,
-              "numberOfVirtualNetworkLinksWithRegistration": 0,
-              "provisioningState": "Succeeded"
-          }
-      },
+
       {
           "type": "Microsoft.Network/virtualNetworks",
           "apiVersion": "2020-11-01",
@@ -212,42 +198,7 @@
               "accessTier": "Hot"
           }
       },
-      {
-          "type": "Microsoft.Network/privateDnsZones/A",
-          "apiVersion": "2018-09-01",
-          "name": "[concat(parameters('privateDnsZones_privatelink_database_windows_net_name'), '/sql-db-awd')]",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_database_windows_net_name'))]"
-          ],
-          "properties": {
-              "ttl": 3600,
-              "aRecords": [
-                  {
-                      "ipv4Address": "10.0.1.4"
-                  }
-              ]
-          }
-      },
-      {
-          "type": "Microsoft.Network/privateDnsZones/SOA",
-          "apiVersion": "2018-09-01",
-          "name": "[concat(parameters('privateDnsZones_privatelink_database_windows_net_name'), '/@')]",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_database_windows_net_name'))]"
-          ],
-          "properties": {
-              "ttl": 3600,
-              "soaRecord": {
-                  "email": "azureprivatedns-host.microsoft.com",
-                  "expireTime": 2419200,
-                  "host": "azureprivatedns.net",
-                  "minimumTtl": 10,
-                  "refreshTime": 3600,
-                  "retryTime": 300,
-                  "serialNumber": 1
-              }
-          }
-      },
+     
       {
           "type": "Microsoft.Network/privateEndpoints",
           "apiVersion": "2020-11-01",
@@ -488,22 +439,7 @@
               }
           }
       },
-      {
-          "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
-          "apiVersion": "2018-09-01",
-          "name": "[concat(parameters('privateDnsZones_privatelink_database_windows_net_name'), '/ydawybgb3nxyk')]",
-          "location": "global",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_database_windows_net_name'))]",
-              "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_default_vnet_name'))]"
-          ],
-          "properties": {
-              "registrationEnabled": false,
-              "virtualNetwork": {
-                  "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_default_vnet_name'))]"
-              }
-          }
-      },
+     
       {
           "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
           "apiVersion": "2021-08-01",
@@ -677,17 +613,6 @@
             ],
             "emailAccountAdmins": false,
             "retentionDays": 0
-        }
-    },
-    {
-        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-        "apiVersion": "2021-08-01-preview",
-        "name": "[concat(parameters('servers_sample_db_server_mas_name'), '/samplesales/Current')]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sample_db_server_mas_name'), 'samplesales')]"
-        ],
-        "properties": {
-            "state": "Enabled"
         }
     },
     {

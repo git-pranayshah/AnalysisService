@@ -42,11 +42,7 @@
           "defaultValue": "data-endpoint",
           "type": "String"
       },
-      "privateDnsZones_privatelink_database_windows_net_name": {
-          "defaultValue": "privatelink.database.windows.net",
-          "type": "String"
-      },
-      "networkInterfaces_private_db_nic_ca0691f2_f1a6_420a_8efe_24cff8b7b54e_name": {
+      "networkInterfaces_private_db_nic_name": {
           "defaultValue": "[concat('private-db.nic.', uniqueString(resourceGroup().id))]",
           "type": "String"
       }
@@ -77,7 +73,7 @@
       {
           "type": "Microsoft.Network/networkInterfaces",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('networkInterfaces_private_db_nic_ca0691f2_f1a6_420a_8efe_24cff8b7b54e_name')]",
+          "name": "[parameters('networkInterfaces_private_db_nic_name')]",
           "location": "[resourceGroup().location]",
           "dependsOn": [
             "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_default_vnet_name'))]"

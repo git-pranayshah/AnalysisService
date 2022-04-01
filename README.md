@@ -23,8 +23,8 @@ On other hand, Azure Analysis services does not need any specific network instal
 # Pre-requisites:
 -   Microsoft Azure Account to deploy services
 -   Visual Studio 2019 with,
-    o   SSDT (SQL Server Development Tools)
-    o   Microsoft Analysis Services Tabular Model Plugin
+    - SSDT (SQL Server Development Tools)
+    - Microsoft Analysis Services Tabular Model Plugin
 
 # Landing Zone Architecture
 
@@ -49,16 +49,21 @@ The [Template.json](https://raw.githubusercontent.com/git-pranayshah/AnalysisSer
 [Template.json](https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json) can be modified to match your current infrastructure needs.
 
 ## Teamplate Parameters
-- Subscription: Azure Portal Subscription where you wish to deploy the template
-- Resource Group: Select or create new resource group to deploy the resources
-- Region (Default:westeruope): Select rigth region to deploy the resources
-- Subscription Id: Select right Azure subscription id
-- Servers_sample_db_server_mas_name (Default: samplesqldb-<Unique string based on resource group>): Server name for Azure SQL 
-- Private Endpoints_private_db_name(Default: private-db): Private endpoint name for Azure SQL DB connection
-- Virtual Networks_default_vnet_name(Default: defaultvnet): Virtual Network Name
--
-
-
+- ***Subscription:*** Azure Portal Subscription where you wish to deploy the template
+- ***Resource Group:*** Select or create new resource group to deploy the resources
+- ***Region(Default:westeruope):*** Select rigth region to deploy the resources
+- ***Subscription Id:*** Select right Azure subscription id
+- ***Server_owner_email:*** Email address of the server owner. 
+- ***Servers_sample_db_server_mas_name(Default: samplesqldb-<Unique string based on resource group>):*** Server name for Azure SQL 
+- ***Private Endpoints_private_db_name(Default: private-db):*** Private endpoint name for Azure SQL DB connection
+- ***Virtual Networks_default_vnet_name(Default: defaultvnet):*** Virtual Network Name
+- ***Servers_sql_db_awd_login_user(Default: sql-admin):*** SQL Admin user name for SQL Authentication
+- ***Servers_sql_db_awd_login_password:*** SQL Admin user Password for SQL Authentication
+- ***Storage Accounts_storagessqldb_name(Default: stgsql<Unique string based on resource group>):*** Storage Account Name for SQL Server
+- ***Servers_sampledbmodel_name(Default: sampledbmodel):*** Microsoft Analysis Services Instance name
+- ***Netowrk Configurations:*** (Recommend to not to change until it throws conflcits error in template execution)
+    - ***Private Endpoints_data_endpoint_name(Default: data-endpoint):*** Private endpoint name for SQL Server
+    - ***networkInterfaces_private_db_nic_name(Default:*** tgprivate-db.nicsql<Unique string based on resource group>): Network interface name
 ## One Click Deploying Teamplate
 <!-- Powershell command for Translating Git URL for template.json
     $url = "https://raw.githubusercontent.com/git-pranayshah/AnalysisService/master/template.json"

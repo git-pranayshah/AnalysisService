@@ -121,7 +121,7 @@ Using the search bar on top type Templates
 - https://docs.microsoft.com/en-us/azure/architecture/data-science-process/sample-data-sql-server
 - https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-overview
 
-## Licensing
+## License & Contribute
 
 You are responsible for the performance, the necessary testing, and if needed any regulatory clearance for any of the models produced by this toolbox.
 Please refer [LICENSE](LICENSE) &  [Contribute](https://github.com/git-pranayshah/AnalysisService/blob/master/Contribute.md) for more details
